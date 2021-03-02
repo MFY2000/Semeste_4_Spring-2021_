@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Play">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="512.0" layoutX="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/ludo_board.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="rollButton" layoutX="594.0" layoutY="318.0" mnemonicParsing="false" onAction="#rollButtonPressed" prefHeight="56.0" prefWidth="109.0" text="Roll Dice">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.25" color="#c60909" height="121.18" radius="50.225" width="81.72" />
+         </effect>
+      </Button>
+      <ImageView fx:id="RotateDice" fitHeight="240.0" fitWidth="251.0" layoutX="529.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <Glow level="0.36" />
+         </effect>
+         <image>
+            <Image url="@../Image/DiceAllStart.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Dice5" disable="true" fitHeight="1.0" fitWidth="35.0" layoutX="32.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Dice1" disable="true" fitHeight="191.0" fitWidth="1.0" layoutX="113.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Dice2" disable="true" fitHeight="1.0" fitWidth="1.0" layoutX="127.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Dice3" disable="true" fitHeight="1.0" fitWidth="1.0" layoutX="178.0" layoutY="-53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Dice4" disable="true" fitHeight="1.0" fitWidth="1.0" layoutX="271.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Dice6" disable="true" fitHeight="1.0" fitWidth="1.0" layoutX="171.0" layoutY="-45.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice6.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="DiceAll" disable="true" fitHeight="1.0" fitWidth="1.0" layoutX="292.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Image/Dice.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="StopButton" layoutX="594.0" layoutY="384.0" mnemonicParsing="false" onAction="#StopAction" prefHeight="56.0" prefWidth="109.0" text="STOP!">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow choke="0.25" color="BLUE" height="101.45" radius="45.292500000000004" width="81.72" />
+         </effect>
+      </Button>
+      <AnchorPane fx:id="TransitionPane" layoutX="20.0" layoutY="1.0" prefHeight="500.0" prefWidth="500.0">
+         <children>
+            <Circle fx:id="yellow3" fill="#e3ff1f" layoutX="101.0" layoutY="433.0" onMouseClicked="#yellow3click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="yellow2" fill="#e3ff1f" layoutX="69.0" layoutY="394.0" onMouseClicked="#yellow2click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="yellow1" fill="#e3ff1f" layoutX="101.0" layoutY="362.0" onMouseClicked="#yellow1click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="red1" fill="RED" layoutX="402.0" layoutY="68.0" onMouseClicked="#red1click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="red3" fill="RED" layoutX="370.0" layoutY="100.0" onMouseClicked="#red3click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="red4" fill="RED" layoutX="402.0" layoutY="132.0" onMouseClicked="#red4click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="red2" fill="RED" layoutX="434.0" layoutY="100.0" onMouseClicked="#red2click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="blue3" fill="BLUE" layoutX="363.0" layoutY="398.0" onMouseClicked="#blue3click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="blue4" fill="BLUE" layoutX="402.0" layoutY="433.0" onMouseClicked="#blue4click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="yellow4" fill="#e3ff1f" layoutX="133.0" layoutY="398.0" onMouseClicked="#yellow4click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="blue1" fill="BLUE" layoutX="402.0" layoutY="362.0" onMouseClicked="#blue1click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="blue2" fill="BLUE" layoutX="434.0" layoutY="398.0" onMouseClicked="#blue2click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="green3" fill="LIME" layoutX="101.0" layoutY="132.0" onMouseClicked="#green3click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="green4" fill="LIME" layoutX="133.0" layoutY="100.0" onMouseClicked="#green4click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="green1" fill="LIME" layoutX="101.0" layoutY="68.0" onMouseClicked="#green1click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+            <Circle fx:id="green2" fill="LIME" layoutX="69.0" layoutY="100.0" onMouseClicked="#green2click" radius="16.0" stroke="#e1da18" strokeType="INSIDE">
+               <effect>
+                  <Lighting diffuseConstant="1.24" specularConstant="1.27" specularExponent="24.66" surfaceScale="6.62">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Circle>
+         </children>
+      </AnchorPane>
+      <Text fx:id="playerTurn" layoutX="546.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Text>
+   </children>
+   <effect>
+      <InnerShadow choke="0.53" color="#1b0e0e" height="0.56" radius="15.95" width="65.24" />
+   </effect>
+</AnchorPane>
