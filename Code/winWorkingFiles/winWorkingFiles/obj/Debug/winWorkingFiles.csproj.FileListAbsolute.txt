@@ -1,0 +1,19 @@
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\bin\Debug\winWorkingFiles.exe.config
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\bin\Debug\winWorkingFiles.exe
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\bin\Debug\winWorkingFiles.pdb
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.csprojAssemblyReference.cache
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.Form1.resources
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.Properties.Resources.resources
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.csproj.GenerateResource.cache
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.exe
+C:\Users\m.tauseef\source\repos\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.pdb
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.csprojAssemblyReference.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.Properties.Resources.resources
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.csproj.GenerateResource.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.csproj.CoreCompileInputs.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.exe
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.pdb
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\bin\Debug\winWorkingFiles.exe.config
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\bin\Debug\winWorkingFiles.exe
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\bin\Debug\winWorkingFiles.pdb
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\winWorkingFiles\winWorkingFiles\obj\Debug\winWorkingFiles.Global.resources
