@@ -16,10 +16,17 @@ namespace WinPracticePoject
         public Form1()
         {
             InitializeComponent();
+            getFileList();
+        }
+        public void getFileList(){
+            DirectoryInfo di = new DirectoryInfo(@"C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\_TXT-Files\");
+            FileInfo[] fi = di.GetFiles();//listBox1. //di.Name;
+            for(int i = 0; i<=fi.Length-1;i++){
+                listBox1.Items.Insert(i, fi[i].Name);
+            }
 
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+            private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -30,11 +37,23 @@ namespace WinPracticePoject
             StreamWriter obj = new StreamWriter(@"C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\_TXT-Files\file" + GUID() + ".txt",true);
             obj.WriteLine(TXT_input.Text);
             obj.Close();
+
+            listBox1.Items.Clear();
+            getFileList();
         }
 
-   
+        public void BTN_Update_Click(object sender, EventArgs e)
+        {
+            //textBox1.Text = TXT_input.Text;
+            StreamWriter obj = new StreamWriter(@"C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\_TXT-Files\file" + GUID() + ".txt", true);
+            obj.WriteLine(TXT_input.Text);
+            obj.Close();
 
-       
+            listBox1.Items.Clear();
+            getFileList();
+        }
+
+
         public String getData(string FileName)
         {
 
@@ -59,5 +78,15 @@ namespace WinPracticePoject
         public string GUID(){
             return DateTime.Now.Ticks.ToString();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            TXT_input.Text = getData(@"C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\_TXT-Files\"+listBox1.SelectedItem.ToString());
+            BTN_Save.Text = "Update";
+           // BTN_Save_ClickBTN_Update_Click);
+             //BTN_Update_Click(sender, e);
+        }
+
+
     }
 }
