@@ -79,14 +79,5 @@ namespace WinPracticePoject
             return DateTime.Now.Ticks.ToString();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        { 
-            TXT_input.Text = getData(@"C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\_TXT-Files\"+listBox1.SelectedItem.ToString());
-            BTN_Save.Text = "Update";
-           // BTN_Save_ClickBTN_Update_Click);
-             //BTN_Update_Click(sender, e);
-        }
-
-
     }
 }
