@@ -16,11 +16,7 @@ namespace WinPracticePoject
         public Form1()
         {
             InitializeComponent();
-            getdata();
-        }
-        public void getdata() 
-        { 
-        
+            //getFileList();
         }
 
         private void BTNSAVE_Click(object sender, EventArgs e)

@@ -1,0 +1,22 @@
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\bin\Debug\winProjectAM.exe.config
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\bin\Debug\winProjectAM.exe
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\bin\Debug\winProjectAM.pdb
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csprojAssemblyReference.cache
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.Form1.resources
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.Properties.Resources.resources
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csproj.GenerateResource.cache
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.exe
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.pdb
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\bin\Debug\IrisSkin2.dll
+C:\Users\m.tauseef\source\repos\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csproj.CopyComplete
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\bin\Debug\winProjectAM.exe.config
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\bin\Debug\winProjectAM.exe
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\bin\Debug\winProjectAM.pdb
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csprojAssemblyReference.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.Form1.resources
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.Properties.Resources.resources
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csproj.GenerateResource.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csproj.CoreCompileInputs.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.csproj.CopyComplete
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.exe
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\2) winProjectAM_03242021\winProjectAM\winProjectAM\obj\Debug\winProjectAM.pdb
