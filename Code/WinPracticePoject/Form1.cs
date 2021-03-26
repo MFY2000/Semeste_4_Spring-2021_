@@ -16,8 +16,9 @@ namespace WinPracticePoject
         public Form1()
         {
             InitializeComponent();
-            getFileList();
+            //getFileList();
         }
+        /*
         public void getFileList(){
             DirectoryInfo di = new DirectoryInfo(@"C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\_TXT-Files\");
             FileInfo[] fi = di.GetFiles();//listBox1. //di.Name;
@@ -69,15 +70,16 @@ namespace WinPracticePoject
             }
 
             return "";
-            /*StreamReader objWrite = new StreamReader(FileName);
+            StreamReader objWrite = new StreamReader(FileName);
             string FileData = objWrite.ReadToEnd();
             objWrite.Close();
-            TXT_input.Text = FileData;*/
+            TXT_input.Text = FileData;
         }
 
         public string GUID(){
             return DateTime.Now.Ticks.ToString();
         }
+         */
 
     }
 }

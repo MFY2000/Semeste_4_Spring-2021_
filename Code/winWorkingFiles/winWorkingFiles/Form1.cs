@@ -21,7 +21,7 @@ namespace winWorkingFiles{
         public Form1(){
             InitializeComponent();
         }
-
+        /*
         private void btnSave_Click(object sender, EventArgs e)
         {
             WritingFile(txtMyData.Text, true);
@@ -68,10 +68,7 @@ namespace winWorkingFiles{
             WritingFile("", false);
         }
 
-        public string GUID()
-        {
-            return DateTime.Now.Ticks.ToString();
-        }
+*/
 
         private void Form1_Load(object sender, EventArgs e)
         {
