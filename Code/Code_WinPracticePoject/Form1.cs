@@ -34,10 +34,27 @@ namespace WinPracticePoject
             gvData.DataSource = ds.Tables[0];
         }
 
-        private void BTNSAVE_Click(object sender, EventArgs e)
+        public void runQueary(string QRY)
         {
 
+            // Pass Query and Connection object into the SQL Command
+            SqlCommand obj = new SqlCommand(QRY, con);
+
+            // Open & Close Database after execute the query
+            con.Open();
+            obj.ExecuteNonQuery();
+            con.Close();
         }
+
+        private void BTNSAVE_Click(object sender, EventArgs e)
+        {
+            runQueary("INSERT INTO List (Todo,Status_) VALUES ('"+txtInput.Text+"',0);");
+            getData();
+
+        }
+
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
