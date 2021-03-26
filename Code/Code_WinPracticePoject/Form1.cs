@@ -17,7 +17,7 @@ namespace WinPracticePoject
     {
         // Step 02: connection Object
         SqlConnection con = new SqlConnection("Data Source=MFY;Initial Catalog=TODO_list;Integrated Security=True");  // Connection Object
-        string ID = String.Empty;
+        string ID = "";
         Boolean flag = false;
 
         public Form1()
@@ -48,9 +48,17 @@ namespace WinPracticePoject
 
         private void BTNSAVE_Click(object sender, EventArgs e)
         {
-            runQueary("INSERT INTO List (Todo,Status_) VALUES ('"+txtInput.Text+"',0);");
-            getData();
+            if (txtInput.Text != ""){
 
+                string InsertQureay = "INSERT INTO List (Todo,Status_) VALUES ('" + txtInput.Text + "',0);";
+                string UpdateQureay = "UPDATE List SET Todo = '" + txtInput.Text + "' WHERE id = "+ID+"; ";
+
+                runQueary(flag?InsertQureay: UpdateQureay);
+
+                txtInput.Text = "";
+                flag = true;
+                getData();
+            }
         }
 
 
@@ -58,7 +66,26 @@ namespace WinPracticePoject
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int index = e.RowIndex;
+            ID = gvData.Rows[index].Cells[0].Value.ToString();
+            txtInput.Text = gvData.Rows[index].Cells[1].Value.ToString();
+            flag = false;
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtInput.Text = "";
+        }
+
+        private void BTNDelete_Click(object sender, EventArgs e)
+        {
+            if (ID != "" && !flag)
+            {
+                runQueary("DELETE FROM List WHERE id = " + ID);
+                ID = "";
+                txtInput.Text = "";
+                getData();
+            }
         }
 
 
