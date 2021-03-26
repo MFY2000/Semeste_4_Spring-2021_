@@ -29,22 +29,23 @@ namespace WinPracticePoject
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gvData = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.BTNSAVE = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // gvData
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 191);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(550, 183);
-            this.dataGridView1.TabIndex = 0;
+            this.gvData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.gvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvData.Location = new System.Drawing.Point(12, 191);
+            this.gvData.Name = "gvData";
+            this.gvData.Size = new System.Drawing.Size(550, 183);
+            this.gvData.TabIndex = 0;
+            this.gvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -89,11 +90,11 @@ namespace WinPracticePoject
             this.Controls.Add(this.BTNSAVE);
             this.Controls.Add(this.txtInput);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gvData);
             this.Name = "Form1";
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Black;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,7 +102,7 @@ namespace WinPracticePoject
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gvData;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Button BTNSAVE;

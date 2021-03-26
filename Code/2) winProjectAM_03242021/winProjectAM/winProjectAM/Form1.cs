@@ -27,8 +27,7 @@ namespace winProjectAM
             BindGrid();
         }
 
-        public void BindGrid()
-        {
+        public void BindGrid(){
             // Step 03: Sql Data Adapter Call
             SqlDataAdapter da = new SqlDataAdapter("Select * from Students", con);
 

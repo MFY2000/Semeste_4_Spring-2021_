@@ -8,3 +8,13 @@ C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\WinPracticePoject\obj\Debug\Win
 C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\WinPracticePoject\obj\Debug\WinPracticePoject.csproj.CoreCompileInputs.cache
 C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\WinPracticePoject\obj\Debug\WinPracticePoject.exe
 C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\WinPracticePoject\obj\Debug\WinPracticePoject.pdb
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\bin\Debug\WinPracticePoject.exe.config
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\bin\Debug\WinPracticePoject.exe
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\bin\Debug\WinPracticePoject.pdb
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.csprojAssemblyReference.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.Form1.resources
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.Properties.Resources.resources
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.csproj.GenerateResource.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.csproj.CoreCompileInputs.cache
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.exe
+C:\Users\MF\Desktop\Semester# 4 Spring 2021\Code\Code_WinPracticePoject\obj\Debug\WinPracticePoject.pdb
