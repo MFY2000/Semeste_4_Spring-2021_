@@ -94,7 +94,7 @@ namespace WinPracticePoject
             this.BTNDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BTNDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BTNDelete.Location = new System.Drawing.Point(420, 158);
+            this.BTNDelete.Location = new System.Drawing.Point(429, 158);
             this.BTNDelete.Name = "BTNDelete";
             this.BTNDelete.Size = new System.Drawing.Size(71, 27);
             this.BTNDelete.TabIndex = 4;
