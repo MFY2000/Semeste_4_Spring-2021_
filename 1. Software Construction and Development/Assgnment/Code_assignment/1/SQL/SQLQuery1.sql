@@ -1,19 +1,22 @@
-create database TODO_list
+create database Assignment;
+use Assignment;
 
-use TODO_list
+
+Create table Contact( 
+ID varchar(10),
+Company_Name nvarchar(50),
+Contact_Name nvarchar(50),
+Contact_Title nvarchar(50),
+Address nvarchar(50),
+City nvarchar(50),
+Postal_Code int,
+Phone nvarchar(50),
+Region nvarchar(50),
+Country nvarchar(50),
+Fax nvarchar(50),
+)
 
 
-create table List(
-id int IDENTITY(7453,1) PRIMARY KEY,
-Todo varchar(250),
-Date_ varchar(30),
-Status_ int check (Status_ > -1 and Status_ < 2),
-);
+insert into Contact values(456,'WHE','Maria','','','','','','','','','');
 
-select * from List;
-
-drop table List;
-
-TRUNCATE TABLE List;
-
-INSERT INTO List VALUES ('to go market','12-05-2020',0);
+drop table Contact;
