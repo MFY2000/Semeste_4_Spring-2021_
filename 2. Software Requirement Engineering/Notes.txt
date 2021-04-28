@@ -1,0 +1,13 @@
+== REQUIREMENT
+Requirement: describe that what it software should do or how to do it;
+Business requirements: describe why the organization needs the software;
+User requirements: describe the tasks that the users must be with the software;
+System Requirements: describe the system need for the software;
+
+Feature: A set of requirment that fullfil user goal;
+
+Product requirements: describe properties of a software system to be built.
+Project requirements: describe expectations of a software system to be built.
+
+== REQUIREMENT from Customer’s Perspective
+Stakeholder: the project involved in a project, 
