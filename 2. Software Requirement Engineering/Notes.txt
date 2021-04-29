@@ -10,4 +10,38 @@ Product requirements: describe properties of a software system to be built.
 Project requirements: describe expectations of a software system to be built.
 
 == REQUIREMENT from Customer’s Perspective
-Stakeholder: the project involved in a project, 
+Stakeholder: is affected by its process or outcome.
+Customer: is the either taking direct or indirect benefit from a product.
+User or End User: people who will actually use the product or Direct users.
+
+==Requirement Engineering Processes
+Elicitation: identification of stakeholder, goals, and objective and the environment in which our product will work
+
+Normal requirement: The requirement the user provide
+Expected requirement:The requirement the user dont provide but expect
+Exciting requirement:The requirement that we don't get but made to satisfy user.
+
+Analysis: Analysis is the process in which we reach the highest level of requirement clarification.
+Specification: Store & represent all the requirements in a better way.
+Validation: We recheck all the requirements before working on it.
+Requirement Management: We gather all requirement & then we divide them into sub categories.First we gather baseline requirements.
+
+
+Product Vision
+In this we answer seven questions which are related to product or project.
+
+For (target customer)
+Who (statement of the need)
+The(product name)
+is a (product category)
+That (key benefit, compelling reason to buy, unique selling point)
+Unlike (primary competitive alternative)
+Our Product(statement of primary)  
+
+Example:
+For the middle class user, who travel through different source,The FA Developer is a mobile-based
+service that provide online transport serive, Easy delivery that improve customer relationships
+at critical touch points. Unlike other seriver or package software products, our product provides very capable services at a moderate cost.
+
+Project Scope
+SMART Goals
