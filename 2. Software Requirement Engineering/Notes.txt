@@ -45,3 +45,31 @@ at critical touch points. Unlike other seriver or package software products, our
 
 Project Scope
 SMART Goals
+
+
+== The Business Analyst
+
+The business analyst is the individual who has the primary responsibility to elicit, analyze, document, and validate the needs of the project stakeholders and principal interpreter and Business analyst is a project role, not necessarily a job title.
+
+The analyst must first understand the business objectives for
+the project and then define user, functional, and quality
+requirements that allow teams to estimate and plan the
+project and to design, build, and verify the product.
+
+Help determine the best approach to document the backlog, including
+whether story cards or more formal tools are most appropriate.
+• Apply facilitation and leadership skills to ensure that stakeholders are
+talking to one another frequently about requirements needs, questions,
+and concerns.
+• Help validate that customer needs are accurately represented in the
+product backlog, and facilitate backlog prioritization.
+• Work with customers when they change their minds about requirements
+and priorities, and help record those changes.
+• Work with the rest of the team to determine the impact of changes on
+iteration contents and release plans.
+
+
+Identifying desired business benefits
+Conflicting Business Requirements
+Vision and Scope document
+Scope representation techniques(Context diagram,Ecosystem Map,Feature tree,Event List)
