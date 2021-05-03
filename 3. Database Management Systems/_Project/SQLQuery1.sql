@@ -6,7 +6,7 @@ CREATE TABLE admin_users (
   username varchar(250) NOT NULL,
   user_id varchar(10) NOT NULL,
   user_pass varchar(250) NOT NULL,
-  user_access int NOT NULL DEFAULT 1
+  Lkey int NOT NULL
 )
 CREATE TABLE aboutus_setup (
   user_id varchar(10) NOT NULL, -- FK
@@ -84,6 +84,15 @@ CREATE TABLE skills (
   score varchar(250) NOT NULL
 )
 
+CREATE TABLE Licence (
+  user_id varchar(10) NOT NULL, -- fk , pk
+  LKey int NOT NULL PRIMARY KEY, -- pk
+  ExpireDate varchar(12) NOT NULL,
+  IssueDate varchar(12) NOT NULL,
+  LStatus int NOT NULL DEFAULT 1
+)
+
+
 -- ADD PRIMARY KEY  
 
 ALTER TABLE admin_users
@@ -108,35 +117,66 @@ ALTER TABLE Experience
   ADD PRIMARY KEY (user_id,year,ogname);
 ALTER TABLE skills
   ADD PRIMARY KEY (user_id,skill);
+ALTER TABLE Licence
+  ADD PRIMARY KEY (LKey);
+  
   --
 
   -- ADD Foreign Key  
 
+ALTER TABLE Licence
+   ADD CONSTRAINT aboutus_setupfk
+   FOREIGN KEY (user_id)
+   REFERENCES admin_users (user_id);
+ALTER TABLE admin_users
+   ADD CONSTRAINT Licencefk
+   FOREIGN KEY (LKey)
+   REFERENCES Licence (LKey);
 ALTER TABLE aboutus_setup
    ADD CONSTRAINT admin_usersfk
    FOREIGN KEY (user_id)
    REFERENCES admin_users (user_id);
+ALTER TABLE basic_setup   
+	ADD CONSTRAINT basic_setupfk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
+ALTER TABLE basic_setup   
+	ADD CONSTRAINT basic_setup2Themefk
+	FOREIGN KEY (Theme)
+	REFERENCES Theme (Theme);
+ALTER TABLE Theme_Customize   
+	ADD CONSTRAINT Theme_Customizefk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);	
+ALTER TABLE Theme_Customize  
+	ADD CONSTRAINT Theme_Customize2Themefk
+	FOREIGN KEY (Theme)
+	REFERENCES Theme (Theme);
+ALTER TABLE contact   
+	ADD CONSTRAINT contactfk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
+ALTER TABLE personal_setup   
+	ADD CONSTRAINT personal_setupfk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
+ALTER TABLE Link_setup   
+	ADD CONSTRAINT Link_setupfk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
+ALTER TABLE portfolio   
+	ADD CONSTRAINT portfoliofk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
+ALTER TABLE Experience   
+	ADD CONSTRAINT Experiencefk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
+ALTER TABLE skills   
+	ADD CONSTRAINT skillsfk
+	FOREIGN KEY (user_id)
+	REFERENCES admin_users (user_id);
 
-ALTER TABLE admin_users
-  ADD PRIMARY KEY (user_id);
-ALTER TABLE aboutus_setup
-  ADD PRIMARY KEY (user_id,dob);
-ALTER TABLE basic_setup
-  ADD PRIMARY KEY (user_id,Theme); 
-ALTER TABLE Theme
-  ADD PRIMARY KEY (Theme);
-ALTER TABLE Theme_Customize
-  ADD PRIMARY KEY (user_id,Theme);
-ALTER TABLE contact
-  ADD PRIMARY KEY (user_id,Cid);
-ALTER TABLE personal_setup
-  ADD PRIMARY KEY (user_id,emailuser);
-ALTER TABLE Link_setup
-  ADD PRIMARY KEY (user_id,Name);
-ALTER TABLE portfolio
-  ADD PRIMARY KEY (user_id,projectname);
-ALTER TABLE Experience
-  ADD PRIMARY KEY (user_id,year,ogname);
-ALTER TABLE skills
-  ADD PRIMARY KEY (user_id,skill);
   --
+
+  delete admin_users;
