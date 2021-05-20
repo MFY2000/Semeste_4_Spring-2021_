@@ -6141,6 +6141,17 @@ table.table .avatar {
   font-size: 13px;
 }
 
-container-xl{
-  
+#New_user{
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+ 
+#New_user button{
+background-color: white;
+font-size: 25px;;
+border: none;
+color: rgb(158, 158, 158);
 }
