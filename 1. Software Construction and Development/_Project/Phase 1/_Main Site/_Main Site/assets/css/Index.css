@@ -1,0 +1,36 @@
+.simple-slider {
+}
+
+._footer {
+  font-family: Kaushan Script,Helvetica Neue,Helvetica,Arial,cursive;
+  color: #fec503 !important;
+}
+
+.fa.fa-map-marker.footer-contacts-icon {
+}
+
+.display_inline_block {
+  min-width: 0px;
+  max-width: 100%;
+  padding: 33px;
+  display: flex;
+  flex-flow: row;
+}
+
+#OR {
+  display: flex;
+  flex-direction: column !important;
+}
+
+#SocialLogin_ {
+  width: 269px;
+}
+
+.Heading_Login {
+  color: rgb(139,139,139);
+  margin-bottom: 0px;
+  font-weight: 400;
+  font-size: 27px;
+  font-family: 'Playfair Display', serif;
+}
+
