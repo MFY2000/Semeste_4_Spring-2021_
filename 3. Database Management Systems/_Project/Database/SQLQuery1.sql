@@ -1,6 +1,6 @@
-CREATE DATABASE Portfolio_Maker;
+CREATE DATABASE Portfolio;
 
-use Portfolio_Maker;
+use Portfolio;
 
 CREATE TABLE admin_users (
   username varchar(250) NOT NULL,
