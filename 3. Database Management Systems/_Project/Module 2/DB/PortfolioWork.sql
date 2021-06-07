@@ -12,13 +12,15 @@ CREATE TABLE admin_users (
 CREATE TABLE aboutus_setup (
   user_id varchar(10) NOT NULL, -- FK
   dob varchar(250) NOT NULL, -- FK+PK
-  shortdesc text NOT NULL,
   heading text NOT NULL,
   subheading text NOT NULL,
+  shortdesc text NOT NULL,
   longdesc text NOT NULL,
   website varchar(250) NOT NULL
  
 )
+
+
 
 CREATE TABLE basic_setup (
   user_id varchar(10) NOT NULL,-- FK
@@ -29,6 +31,7 @@ CREATE TABLE basic_setup (
   icon varchar(250) NOT NULL,
   Theme varchar(10) NOT NULL -- fk
 )
+
 
 CREATE TABLE Theme (
   Theme varchar(10) NOT NULL, -- pk
@@ -72,6 +75,7 @@ CREATE TABLE Link_setup(
   Link varchar(200) NOT NULL,
 )
 
+
 CREATE TABLE ProjectDetail (
   user_id varchar(10) NOT NULL, -- fk,pk
   projectname varchar(250) NOT NULL, -- pk
@@ -79,6 +83,7 @@ CREATE TABLE ProjectDetail (
   projectlink text NOT NULL,
   projectdesc varchar(250) NOT NULL,
 )
+
 
 CREATE TABLE Experience (
   user_id varchar(10) NOT NULL, -- fk , pk
@@ -103,6 +108,7 @@ CREATE TABLE Licence (
   LStatus int NOT NULL DEFAULT 1
 )
 
+
 CREATE TABLE Owner_Setup(
 AdminID varchar(10) Not NUll,
 AdminPass varchar(20) Not Null,
@@ -112,22 +118,27 @@ UserName varchar (20) Not Null,
 Email varchar(30) Not Null,
 );
 
+
 CREATE TABLE Request_Manager(
 AdminID varchar(10) Not NUll,
 NewRequest varchar(10) Not Null,
 Request varchar(10) Not Null,
 );
 
+
 --Insert data
 
 INSERT INTO admin_users VALUES ('Ahmed','User07','Ahmed123',2572);
 
 INSERT INTO aboutus_setup VALUES ('User07','dob123',
-'We welcome you here to create your very own portfolio',
 'About Us','Service we provide',
+'We welcome you here to create your very own portfolio',
 'We provide a lot of options so that you can create
 your own protfolio which will help you to get a job
 according to your skills and experience of work','www.FAportfolio.com');
+
+Insert into basic_setup values('User07',2572,'Software Developer For Hire',
+'I am a software developer with experience of 5 years in java & python','Developer','Avatar 3','Blue');
 
 INSERT INTO Theme Values('Blue','location',1);
 
@@ -267,3 +278,79 @@ ALTER TABLE Request_Manager
 	FOREIGN KEY (AdminID)
 	REFERENCES Owner_Setup (AdminID);
 	
+	--Views
+	
+	Create view AdminView
+	as
+	Select username  'Name', user_id  'ID',
+	user_pass  'Pass',Lkey  'Liscence Key' 
+	from admin_users;
+
+	Create view Aboutus
+	as
+	Select user_id 'ID',dob,heading 'Heading',
+	subheading 'Sub Heading',shortdesc'Short Description',longdesc'Long Description',website'Website' 
+	from aboutus_setup;
+
+	Create view BasicSetup
+	as
+	Select user_id 'ID',LKey 'Liscence Key',title 'Job title',
+	description 'Job Description',keyword'Experties',
+	icon 'Avatar Icon',Theme'Theme' from basic_setup;
+
+	Create view ThemeSelection
+	as
+	Select Theme,
+	Location 'Theme Location',Customize
+	from Theme
+
+	 Create view UserContact
+	 as
+	 Select user_id'ID',Cid'Contact ID',cname'Name',
+	 cemail'Email',csubject 'Subject',
+	 cmessage'Message' from contact
+
+	Create view UserSetup
+	as
+	Select user_id'ID',profilepic'Profile Pic',name'Name',
+	homewallpaper'Wallpaper',professions'Profession',
+	location 'Adress',mobile'Contact No',emailuser'Email'
+	from personal_setup
+
+	
+	Create view LinkSetup
+	as
+	Select user_id 'ID',Name 'Social Networks',
+	Link'URL' from Link_setup
+	
+	Create view Project
+	as
+	Select user_id 'ID',projectname'Project Name',projectpic 'Pics of project'
+	,projectlink 'Link of project',projectdesc'Description' from ProjectDetail
+
+	Create view WorkingExperience
+	as
+	Select user_id'ID',category'Categrory',title'Job Title',year'Working Since',
+	ogname 'Organization Name',workdesc 'Working Description' from Experience
+
+	Create view JobSkills
+	as
+	Select user_id'ID',skill 'Skills',
+	score 'Points' from skills
+
+	Create view LisceneceDetail
+	as
+	Select user_id'ID',LKey'Liscence Key',ExpireDate'Validity',
+	IssueDate 'Issue Date',LStatus 'Liscenece Status' from Licence
+
+	Create view OwnerDetail
+	as
+	Select AdminID,AdminPass,NewRequest'Request Recieved',
+	Number'Contact No',UserName,Email
+	from Owner_Setup
+
+	Create view Request
+	as
+	Select AdminID,NewRequest'Request Recieved',
+	Request'Send Request' from Request_Manager
+
