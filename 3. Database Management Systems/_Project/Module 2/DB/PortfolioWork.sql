@@ -125,6 +125,16 @@ NewRequest varchar(10) Not Null,
 Request varchar(10) Not Null,
 );
 
+CREATE TABLE History(
+UserID varchar(10) Not NUll,
+ActionPerform varchar(100) Not Null,
+Log_ varchar(100) Not Null,
+Before_log varchar(100) Not Null,
+After_log varchar(100) Not Null,
+Date_time varchar(100) Not Null
+);
+
+
 
 --Insert data
 
@@ -358,6 +368,82 @@ Select d1.Profile_Pic,d1.Wallpaper,d1.Name,d1.Profession,
 from UserInfo d1, LinkDetails d2, AboutInfo d3, JobSkills d4, WorkingExperience d5, ProjectInfo d6
 	where d1.ID = d2.ID and d1.ID = d3.ID and d1.ID = d4.ID and d1.ID = d5.ID and d1.ID = d6.ID;
 
+--Procedure
+
+-- Admin Info
+CREATE PROCEDURE InsertRecord(@Name varchar(250), @ID varchar(10),@Pass varchar(250),@Liscence_Key Int)
+AS
+BEGIN
+	Insert into Admininfo(Name, ID,Pass,[Liscence Key]) VALUES (@Name, @ID ,@Pass ,@Liscence_Key);
+END;
+
+--AboutInfo
+CREATE PROCEDURE InsertAboutInfo(@ID varchar(10),@dob varchar(250),@Heading text,@Sub_Heading text,@Short_Description text,
+@Long_Description text,@Website varchar(250))
+AS
+BEGIN
+	Insert into AboutInfo(ID,dob,Heading,[Sub Heading],[Short Description],[Long Description], Website) 
+	VALUES (@ID,@dob,@Heading,@Sub_Heading,@Short_Description,@Long_Description,@Website);
+END;
+
+--basic Info
+CREATE PROCEDURE InsertbasicInfo(@ID varchar(10),@Liscence_Key int ,@Job_title varchar(250),
+@Job_Description text,@Experties text,@Avatar_Icon varchar(250),@Theme varchar(10))
+AS
+BEGIN
+	Insert into BasicInfo(ID,[Liscence Key],[Job title],[Job Description],Experties,[Avatar Icon],Theme) 
+	VALUES (@ID,@Liscence_Key,@Job_title,@Job_Description,@Experties,@Avatar_Icon,@Theme);
+END;
+
+--Theme Info
+	CREATE PROCEDURE Themedata(@Theme varchar(10),@Theme_Location varchar(10),@Customize int)
+AS
+BEGIN
+	Insert into ThemeSelection(Theme,[Theme Location],Customize) 
+	VALUES (@Theme,@Theme_Location,@Customize);
+END;
+
+--Project Detail
+
+CREATE PROCEDURE ProjectDetailInsert(@ID varchar(10),@Project_Name varchar(250), @Pics_of_Project varchar (250),
+		@Link_of_Projet text,@Description varchar(250))
+AS
+BEGIN
+	Insert into ProjectInfo(ID,[Project Name],[Pics of Project],[Link of Project],Description) 
+	VALUES (@ID,@Project_Name,@Pics_of_Project,@Link_of_Projet,@Description);
+END;
+
+CREATE PROCEDURE InsetHistroy(@UserID varchar(10),@ActionPerform varchar(100),@Log_ varchar(100),
+			@Before_log varchar(100),@After_log varchar(100),@Date_time varchar(100))
+AS
+BEGIN
+	Insert into Histroy 
+	VALUES (@UserID,@ActionPerform,@Log_,@Before_log,@After_log,@Date_time);
+END;
+
+-- Trigger
+
+CREATE TRIGGER Histroy_log
+ON AboutInfo
+INSTEAD OF  DELETE, UPDATE
+AS
+BEGIN
+    IF EXISTS(SELECT * FROM inserted)
+	begin
+		Exec InsetHistroy (SELECT i.ID,'UPD',CONCAT(i.dob,i.Heading,i.[Long Description],i.[Short Description],i.[Sub Heading],i.Website),
+								CONCAT(b.dob,b.Heading,b.[Long Description],b.[Short Description],b.[Sub Heading],b.Website),GETDATE() FROM inserted i,AboutInfo b
+								where i.ID = b.ID)
+	end;
+    else IF EXISTS(SELECT * FROM DELETED)
+	begin
 
 	
+		Exec InsetHistroy (SELECT d.ID,'Delete',CONCAT(d.dob,d.Heading,d.[Long Description],d.[Short Description],d.[Sub Heading],d.Website),
+								CONCAT(b.dob,b.Heading,b.[Long Description],b.[Short Description],b.[Sub Heading],b.Website),GETDATE() FROM deleted d,AboutInfo b
+								where d.ID = b.ID);
+	end;
+END
 
+
+
+drop Procedure [dbo].[InsertRecord]
