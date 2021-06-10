@@ -1,6 +1,6 @@
 Create database BanquetBookingSystem;
 
-use BanquetBookingSystem;
+use [Banquent_Booking]
 
 Create table Banquet_Owner(
 Owner_id int Not Null,
@@ -123,6 +123,8 @@ ALTER TABLE [Banquet]
    FOREIGN KEY (CommentID)
    REFERENCES [Comments] (CommentID);
 
+ALTER TABLE [Banquet]
+   DROP CONSTRAINT Banquet2Commentsfk
 
 ALTER TABLE History
    ADD CONSTRAINT History2Banquetfk
@@ -164,36 +166,38 @@ ALTER TABLE Search_cookie
 Insert into Banquet_Owner values (01,'Banq123','Delegent Banquet','Mr.Saqib','03xxxxxxxxx',
 'ABC road Xyz society','Karachi','Co-ordinates',1,'2002');
 
-Select * from Banquet_Owner;
 
 Insert into Search_cookie values(7,'2-06-2018','We give good service for birthday');
 
+Select * from Banquet_Owner;
 Select * from Search_cookie;
+Select * from User_Detail;
+Select * from Transition;
+Select * from History;
+Select * from AdminSetup;
+Select * from Banquet;
+Select * from  Images;
+Select * from Comments;
+
 
 Insert into User_Detail values (7,'Jaffar Abbass','Jaffar123','03xxxxxxxxx','AbC road Abc colony Karachi','Active');
 
-Select * from User_Detail;
 
 Insert into Transition values(4,'680,000','20,000','500,000','250,000','160,000');
 
-Select * from Transition;
 
-Insert into History values(01,7,'12-06-2021','8:00 PM','RP04',4);
+Insert into History values(4,7,'12-06-2021','8:00 PM','RP04',4);
 
-Select * from History;
 
 Insert into AdminSetup values (08,'Fahad Yahya','Fahad123','12-03-2021');
 
-Select * from AdminSetup;
 
 Insert into Banquet values (4,'Delegent Banquet',01,'200 to 1000','8:00 PM','680,000',0,4.5,1,06,54);
 
-Select * from Banquet;
 
 Insert into Images values(06,4,'Red carp','Banquet.jpeg');
 
-Select * from  Images;
 
 Insert into Comments values(54,'Comment 1','Good','02-04-2020','Good');
 
-Select * from Comments;
+
