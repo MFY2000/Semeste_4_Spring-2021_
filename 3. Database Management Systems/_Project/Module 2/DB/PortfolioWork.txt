@@ -5,7 +5,7 @@ use [Portfolio_maker];
 CREATE TABLE admin_users (
   username varchar(250) NOT NULL,
   user_id varchar(10) NOT NULL,
-  user_pass varchar(8) NOT NULL,
+  user_pass varchar(250) NOT NULL,
   Lkey int NOT NULL
 )
 
@@ -353,15 +353,7 @@ select * from Request_Manager;
 	Create view Request
 	as
 	Select AdminID,NewRequest'Request Recieved',
-	Request'Send Request' from Request_Manager re 
-
-
-	Create view Request_Admin
-	as
-	Select * from Request_Manager RM
-	INNER Join Request R on RM.AdminID = R.AdminID;
-
-
+	Request'Send Request' from Request_Manager
 
 	drop view LinkDetails;
 
@@ -525,7 +517,6 @@ BEGIN
     IF EXISTS(SELECT * FROM inserted)
 	begin
 		Exec InsetHistroy (SELECT i.ID,'UPD',CONCAT(i.dob,i.Heading,i.[Long Description],i.[Short Description],i.[Sub Heading],i.Website),
-								CONCAT(b.*,);
 								CONCAT(b.dob,b.Heading,b.[Long Description],b.[Short Description],b.[Sub Heading],b.Website),GETDATE() FROM inserted i,AboutInfo b
 								where i.ID = b.ID)
 	end;
@@ -538,7 +529,6 @@ BEGIN
 								where d.ID = b.ID);
 	end;
 END
-
 
 
 
