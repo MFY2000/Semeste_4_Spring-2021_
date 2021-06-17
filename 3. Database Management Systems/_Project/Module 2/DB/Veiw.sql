@@ -246,3 +246,27 @@ INNER JOIN JobSkills SkillJ ON UserIn.ID = SkillJ.ID
 INNER JOIN WorkingExperience Expe ON UserIn.ID = Expe.ID
 INNER JOIN ProjectInfo Pro ON UserIn.ID = Pro.ID;
 
+
+select * from  Admininfo 
+select * from  AboutInfo 
+select * from  BasicInfo 
+select * from  ThemeSelection 
+select * from  UserContact 
+select * from  UserInfo 
+select * from  LinkDetails 
+select * from  ProjectInfo 
+select * from  WorkingExperience 
+select * from  JobSkills 
+select * from  LisceneceDetail 
+select * from  OwnerInfo 
+select * from  Request 
+select * from  Request_Admin 
+select * from  CustomizeTheme
+select * from  WebView 
+select * from  CheckLisceneDetail 
+select * from  ThemeSelect 
+select * from  OwnerRequestCheck 
+select * from  ExperienceWorkHireDetail 
+select * from  Admin_WEB_Search 
+
+
