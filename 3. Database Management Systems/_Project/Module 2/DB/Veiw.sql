@@ -130,6 +130,12 @@ SELECT *
 FROM Request_Manager RM
 INNER JOIN Request R ON RM.AdminID = R.AdminID;
 
+Create view CustomizeTheme
+as
+Select Theme,user_id 'ID',fcolor 'Font Color',
+bcolor 'Background Color',fontStyle,fontSize
+from Theme_Customize
+
 
 DROP VIEW LinkDetails;
 
@@ -163,10 +169,10 @@ Pro.[Pics of project],
 Pro.Description,
 Pro.[Project Name]
 FROM UserInfo UserIn
-INNER JOIN LinkData LINK ON UserIn ID = Link.ID
-INNER JOIN AboutInfo AboutIn ON UserIn ID = AboutIn.ID
-INNER JOIN JobSkills SkillJ ON UserIn ID = SkillJ.ID
-INNER JOIN WorkingExperience Expe ON UserIn ID = Expe.ID
+INNER JOIN LinkDetails LINK ON UserIn.ID = Link.ID
+INNER JOIN AboutInfo AboutIn ON UserIn.ID = AboutIn.ID
+INNER JOIN JobSkills SkillJ ON UserIn.ID = SkillJ.ID
+INNER JOIN WorkingExperience Expe ON UserIn.ID = Expe.ID
 INNER JOIN ProjectInfo Pro ON ProjCon.ID = Pro.ID;
 
 
@@ -203,7 +209,7 @@ INNER JOIN CustomizeTheme Customize ON ThemeSel.Theme = Customize.Theme;
 CREATE VIEW OwnerRequestCheck AS
 SELECT Own.AdminID,
 Own.UserName,
-Req.[Request Received],
+Req.[Request Recieved]
 FROM OwnerInfo OWN
 INNER JOIN Request Req ON Own.AdminID = Req.AdminID;
 
@@ -225,23 +231,18 @@ workexp.[Working Since]
 FROM WorkingExperience workexp
 INNER JOIN UserInfo UserCon ON workexp.ID = UserCon.ID;
 
-
 -- new View  Admin_WEB_View
 CREATE VIEW Admin_WEB_Search AS
 SELECT 
 UserIn.Name,
 UserIn.Profession,
 Pro.[Project Name],
-lice.IssueDate	
+lice.[Issue Date],	
 SkillJ.Skills,
 Expe.[Organization Name] 
 FROM UserInfo UserIn
-INNER JOIN LinkData LINK ON UserIn ID = Link.ID
-INNER JOIN LisceneceDetail lice ON UserIn ID = lice.ID
-INNER JOIN JobSkills SkillJ ON UserIn ID = SkillJ.ID
-INNER JOIN WorkingExperience Expe ON UserIn ID = Expe.ID
-INNER JOIN ProjectInfo Pro ON ProjCon.ID = Pro.ID;
+INNER JOIN LisceneceDetail lice ON UserIn.ID = lice.ID
+INNER JOIN JobSkills SkillJ ON UserIn.ID = SkillJ.ID
+INNER JOIN WorkingExperience Expe ON UserIn.ID = Expe.ID
+INNER JOIN ProjectInfo Pro ON UserIn.ID = Pro.ID;
 
-
-SELECT *
-FROM ExperienceWorkHireDetail

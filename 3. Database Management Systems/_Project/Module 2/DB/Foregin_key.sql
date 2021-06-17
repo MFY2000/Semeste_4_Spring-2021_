@@ -58,8 +58,11 @@ ALTER TABLE skills
 ALTER TABLE Owner_Setup
 	ADD CONSTRAINT OwnerSetupFK
 	FOREIGN KEY (NewRequest)
-	REFERENCES Request_Manager (NewRequest);
-ALTER TABLE Request_Manager
-	ADD CONSTRAINT Request_ManagerFK
-	FOREIGN KEY (AdminID)
 	REFERENCES Owner_Setup (AdminID);
+
+
+
+-- ALTER TABLE Request_Manager
+-- 	ADD CONSTRAINT Request_ManagerFK
+-- 	FOREIGN KEY (AdminID)
+-- 	REFERENCES Owner_Setup (AdminID);
