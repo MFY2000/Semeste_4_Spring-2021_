@@ -141,10 +141,12 @@ DROP VIEW LinkDetails;
 
 
 
+
 -- new View  WebView
 CREATE VIEW WebView AS
 SELECT UserIn.Profile_Pic,
 UserIn.Wallpaper,
+UserIn.ID as 'Uid',
 UserIn.Name,
 UserIn.Profession,
 Link.Social_Networks,
@@ -173,9 +175,9 @@ INNER JOIN LinkDetails LINK ON UserIn.ID = Link.ID
 INNER JOIN AboutInfo AboutIn ON UserIn.ID = AboutIn.ID
 INNER JOIN JobSkills SkillJ ON UserIn.ID = SkillJ.ID
 INNER JOIN WorkingExperience Expe ON UserIn.ID = Expe.ID
-INNER JOIN ProjectInfo Pro ON ProjCon.ID = Pro.ID;
+INNER JOIN ProjectInfo Pro ON UserIn.ID = Pro.ID;
 
-
+ 
 
 -- new View  CheckLisceneDetail
 CREATE VIEW CheckLisceneDetail AS
@@ -270,3 +272,12 @@ select * from  ExperienceWorkHireDetail
 select * from  Admin_WEB_Search 
 
 
+CREATE LOGIN Pass1 WITH PASSWORD = 'FD456AHW%L!7';
+create user Guest_User for login Pass1;
+
+grant connect to Guest_User;
+Grant select on course to Guest;
+
+
+
+    
