@@ -3,7 +3,7 @@ Create database BanquetBookingSystem;
 use [Banquent_Booking]
 
 Create table Banquet_Owner(
-Owner_id int Not Null,
+Owner_id int identity(1,1) Not Null,
 Pass varchar (16) Not Null,
 BanquetName varchar(50) Not Null,
 OwnerName varchar (20) Not Null,
@@ -23,7 +23,7 @@ ExtraDetail varchar(50) Not Null,
 
 
 Create table User_Detail(
-UserID int Not Null,
+UserID int identity(1,1) Not Null,
 UserName varchar(20) Not Null,
 Pass varchar(16) Not Null,
 ContactNumber varchar(11) Not Null,
@@ -33,7 +33,7 @@ StatusofUser varchar(30) Not Null
 
 
 Create table Transition (
-TransitionID int Not Null,
+TransitionID int identity(1,1) Not Null,
 Price varchar(30) Not Null,
 GST varchar(11) Not Null,
 Charge varchar(100) Not Null,
@@ -51,7 +51,7 @@ TransitionID int Not Null
 );
 
 Create table AdminSetup(
-AdminID int Not Null,
+AdminID int identity(1,1) Not Null,
 Name varchar(20) Not Null,
 Pass varchar(16) Not Null,
 LastSince varchar(100) Not Null,
@@ -59,7 +59,7 @@ LastSince varchar(100) Not Null,
 
 
 Create table Banquet(
-BanquetID int Not Null,
+BanquetID int identity(1,1) Not Null,
 BanquetName varchar(50) Not Null,
 Owner_id int Not Null,
 Range varchar(100) Not Null,
@@ -74,14 +74,14 @@ CommentID int Not Null,
 
 
 Create table Images(
-ImageID int Not Null,
+ImageID int identity(1,1) Not Null,
 ID int Not Null,
 Alt varchar (11) Not Null,
 Src varchar (100) Not Null
 );
 
 Create table Comments(
-CommentID int Not Null,
+CommentID int identity(1,1) Not Null,
 Name varchar(30) Not Null,
 Comments varchar(11) Not Null,
 Date varchar(100) Not Null,
