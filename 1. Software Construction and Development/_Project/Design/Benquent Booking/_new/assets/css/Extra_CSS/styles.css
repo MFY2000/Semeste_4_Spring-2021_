@@ -1,0 +1,152 @@
+.SocialMedia ul {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.SocialMedia ul li {
+  list-style: none;
+  margin: 0 10px;
+  color: #000000;
+  font-size: 25px;
+  line-height: 50px;
+  transition: .5s;
+}
+
+.SocialMedia ul li a {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  transition: 0.5s;
+  transform: translate(0,0px);
+  box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+
+.SocialMedia ul li a:hover {
+  transform: rotate(0deg) skew(0deg) translate(0, -10px);
+}
+
+.SocialMedia ul li:nth-child(1) a:hover {
+  background-color: #3b5999;
+}
+
+.SocialMedia ul li:nth-child(2) a:hover {
+  background-color: #55acee;
+}
+
+.SocialMedia ul li:nth-child(3) a:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.SocialMedia ul li:nth-child(4) a:hover {
+  background-color: #cd201f;
+}
+
+#tw {
+  height: 40px;
+  width: 35px;
+  padding-bottom: 3px;
+}
+
+#ig {
+  height: 30px;
+  width: 30px;
+  padding-bottom: 3px;
+}
+
+#yt {
+  height: 30px;
+  width: 30px;
+  padding-bottom: 3px;
+}
+
+#fb {
+  height: 25px;
+  width: 25px;
+  padding-bottom: 3px;
+}
+
+.Invert:hover {
+  filter: invert(100%);
+}
+
+#ImageLeft1 {
+  height: 200px;
+  padding: 5px;
+}
+
+#ContainerOne {
+  width: 70%;
+  margin-top: 200px;
+}
+
+#ImageRight {
+  height: 400px;
+  padding: 5px;
+}
+
+#ImageLeft2 {
+  height: 200px;
+  padding: 5px;
+}
+
+#DownImage1 {
+  height: 200px;
+  padding: 5px;
+}
+
+#ContainerTwo {
+  width: 70%;
+}
+
+.container {
+  padding: 0px;
+}
+
+#OverviewContainer {
+  height: 800px;
+}
+
+#BasicDetailContainer {
+  height: 515px;
+}
+
+.BasicInfoLogo {
+  height: 50px;
+}
+
+.Inline_img-p_C {
+  padding: 10px;
+  display: flex;
+}
+
+.BasicInfoLogo2 {
+  height: 21px;
+}
+
+.Padding5px {
+  padding-left: 5px;
+}
+
+.Padding30px {
+  padding-left: 30px;
+}
+
+#Book-Now {
+  text-align: center;
+}
+
+#InsideAvailability {
+  height: 200px;
+}
+
+#FAQ {
+  padding: 20px;
+}
+
