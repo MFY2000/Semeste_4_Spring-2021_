@@ -1,0 +1,15 @@
+.table th, .table td {
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+#WidthDEfine {
+  max-height: 100vh;
+  min-height: fit-content;
+  overflow-y: auto;
+}
+
+#Icon_prt {
+  color: black;
+}
+
