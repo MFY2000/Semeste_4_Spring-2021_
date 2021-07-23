@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e02b11dd7c2e4c209be8cee4330845b9" Name="Diagram1" ZoomLevel="25">
+        <EntityTypeShape EntityType="Portfolio_makerModel.aboutus_setup" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.admin_users" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.basic_setup" Width="1.5" PointX="8.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.contact" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Experience" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Licence" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Link_setup" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Owner_Setup" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.personal_setup" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.ProjectDetail" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Request_Manager" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.skill" Width="1.5" PointX="5.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Theme" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Theme_Customize" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.History" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.AboutInfo" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Admin_WEB_Search" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Admininfo" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.BasicInfo" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.CheckLisceneDetail" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.CustomizeTheme" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.ExperienceWorkHireDetail" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.JobSkill" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.LinkDetail" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.LisceneceDetail" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.OwnerInfo" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.OwnerRequestCheck" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.ProjectInfo" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Request" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.ThemeSelect" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.ThemeSelection" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.UserContact" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.UserInfo" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.UserSetup" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.WebView" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.WorkingExperience" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="Portfolio_makerModel.admin_usersfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.basic_setupfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.contactfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.Experiencefk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.Licencefk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.Link_setupfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.personal_setupfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.projectdetailfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.skillsfk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.Theme_Customizefk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.basic_setup2Themefk" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.Owner2OwnerFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Portfolio_makerModel.Theme_Customize2Themefk" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Main_WEB_Search" Width="1.5" PointX="17.375" PointY="11.75" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.Details_ofWebView" Width="1.5" PointX="13.375" PointY="17.75" />
+        <EntityTypeShape EntityType="Portfolio_makerModel.C_WEB_Search" Width="1.5" PointX="17.375" PointY="14.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
