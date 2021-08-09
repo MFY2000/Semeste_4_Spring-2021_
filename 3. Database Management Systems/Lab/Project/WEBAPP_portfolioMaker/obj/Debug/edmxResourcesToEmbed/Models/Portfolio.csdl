@@ -1,0 +1,1189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Portfolio_makerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="FN_SEARCH_Profession_Result">
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profile_Pic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wallpaper" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profession" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FN_SEARCH_PROJECT_Result">
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscence_Key" Type="Int32" Nullable="false" />
+    <Property Name="Job_title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Job_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Experties" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Avatar_Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FN_SEARCH_userNAME_Result">
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscence_Key" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="aboutus_setup">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="dob" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="shortdesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subheading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="longdesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="website" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.admin_usersfk" FromRole="aboutus_setup" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="admin_users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_pass" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lkey" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="aboutus_setup" Relationship="Self.admin_usersfk" FromRole="admin_users" ToRole="aboutus_setup" />
+    <NavigationProperty Name="basic_setup" Relationship="Self.basic_setupfk" FromRole="admin_users" ToRole="basic_setup" />
+    <NavigationProperty Name="contacts" Relationship="Self.contactfk" FromRole="admin_users" ToRole="contact" />
+    <NavigationProperty Name="Experiences" Relationship="Self.Experiencefk" FromRole="admin_users" ToRole="Experience" />
+    <NavigationProperty Name="Licence" Relationship="Self.Licencefk" FromRole="admin_users" ToRole="Licence" />
+    <NavigationProperty Name="Link_setup" Relationship="Self.Link_setupfk" FromRole="admin_users" ToRole="Link_setup" />
+    <NavigationProperty Name="personal_setup" Relationship="Self.personal_setupfk" FromRole="admin_users" ToRole="personal_setup" />
+    <NavigationProperty Name="ProjectDetails" Relationship="Self.projectdetailfk" FromRole="admin_users" ToRole="ProjectDetail" />
+    <NavigationProperty Name="skills" Relationship="Self.skillsfk" FromRole="admin_users" ToRole="skills" />
+    <NavigationProperty Name="Theme_Customize" Relationship="Self.Theme_Customizefk" FromRole="admin_users" ToRole="Theme_Customize" />
+  </EntityType>
+  <EntityType Name="basic_setup">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="Theme" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LKey" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="icon" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.basic_setupfk" FromRole="basic_setup" ToRole="admin_users" />
+    <NavigationProperty Name="Theme1" Relationship="Self.basic_setup2Themefk" FromRole="basic_setup" ToRole="Theme" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="Cid" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cid" Type="Int32" Nullable="false" />
+    <Property Name="cname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cemail" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="csubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cmessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.contactfk" FromRole="contact" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="Experience">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="year" />
+      <PropertyRef Name="ogname" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="year" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ogname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="workdesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.Experiencefk" FromRole="Experience" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="Licence">
+    <Key>
+      <PropertyRef Name="LKey" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LKey" Type="Int32" Nullable="false" />
+    <Property Name="ExpireDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IssueDate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LStatus" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.Licencefk" FromRole="Licence" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="Link_setup">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.Link_setupfk" FromRole="Link_setup" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="Owner_Setup">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminPass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NewRequest" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Owner_Setup1" Relationship="Self.Owner2OwnerFK" FromRole="Owner_Setup" ToRole="Owner_Setup1" />
+    <NavigationProperty Name="Owner_Setup2" Relationship="Self.Owner2OwnerFK" FromRole="Owner_Setup1" ToRole="Owner_Setup" />
+  </EntityType>
+  <EntityType Name="personal_setup">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="emailuser" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="profilepic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="homewallpaper" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="professions" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mobile" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emailuser" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.personal_setupfk" FromRole="personal_setup" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="ProjectDetail">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="projectname" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="projectname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="projectpic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="projectlink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="projectdesc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.projectdetailfk" FromRole="ProjectDetail" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="Request_Manager">
+    <Key>
+      <PropertyRef Name="NewRequest" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NewRequest" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Request" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="skill">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="skill1" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="skill1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="score" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.skillsfk" FromRole="skills" ToRole="admin_users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Theme">
+    <Key>
+      <PropertyRef Name="Theme1" />
+    </Key>
+    <Property Name="Theme1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Customize" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="basic_setup" Relationship="Self.basic_setup2Themefk" FromRole="Theme" ToRole="basic_setup" />
+    <NavigationProperty Name="Theme_Customize" Relationship="Self.Theme_Customize2Themefk" FromRole="Theme" ToRole="Theme_Customize" />
+  </EntityType>
+  <EntityType Name="Theme_Customize">
+    <Key>
+      <PropertyRef Name="Theme" />
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fcolor" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bcolor" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fontStyle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fontSize" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="admin_users" Relationship="Self.Theme_Customizefk" FromRole="Theme_Customize" ToRole="admin_users" />
+    <NavigationProperty Name="Theme1" Relationship="Self.Theme_Customize2Themefk" FromRole="Theme_Customize" ToRole="Theme" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ActionPerform" />
+      <PropertyRef Name="Log_" />
+      <PropertyRef Name="Before_log" />
+      <PropertyRef Name="After_log" />
+      <PropertyRef Name="Date_time" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ActionPerform" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Log_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Before_log" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="After_log" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date_time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AboutInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="dob" />
+      <PropertyRef Name="Heading" />
+      <PropertyRef Name="Sub_Heading" />
+      <PropertyRef Name="Short_Description" />
+      <PropertyRef Name="Long_Description" />
+      <PropertyRef Name="Website" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sub_Heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Short_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Long_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin_WEB_Search">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="Project_Name" />
+      <PropertyRef Name="Issue_Date" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="Organization_Name" />
+      <PropertyRef Name="PName" />
+      <PropertyRef Name="IDate" />
+      <PropertyRef Name="OName" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profession" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Project_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Issue_Date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Skills" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Organization_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IDate" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="OName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Admininfo">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Pass" />
+      <PropertyRef Name="Liscence_Key" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscence_Key" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BasicInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Liscence_Key" />
+      <PropertyRef Name="Job_title" />
+      <PropertyRef Name="Job_Description" />
+      <PropertyRef Name="Experties" />
+      <PropertyRef Name="Avatar_Icon" />
+      <PropertyRef Name="Theme" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscence_Key" Type="Int32" Nullable="false" />
+    <Property Name="Job_title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Job_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Experties" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Avatar_Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckLisceneDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Pass" />
+      <PropertyRef Name="Liscence_Key" />
+      <PropertyRef Name="Liscenece_Status" />
+      <PropertyRef Name="Issue_Date" />
+      <PropertyRef Name="Validity" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscence_Key" Type="Int32" Nullable="false" />
+    <Property Name="Liscenece_Status" Type="Int32" Nullable="false" />
+    <Property Name="Issue_Date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Validity" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomizeTheme">
+    <Key>
+      <PropertyRef Name="Theme" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Font_Color" />
+      <PropertyRef Name="Background_Color" />
+      <PropertyRef Name="fontStyle" />
+      <PropertyRef Name="fontSize" />
+    </Key>
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Font_Color" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Background_Color" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fontStyle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fontSize" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExperienceWorkHireDetail">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Profile_Pic" />
+      <PropertyRef Name="Wallpaper" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="Categrory" />
+      <PropertyRef Name="Contact_No" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Adress" />
+      <PropertyRef Name="Organization_Name" />
+      <PropertyRef Name="Working_Description" />
+      <PropertyRef Name="Working_Since" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profile_Pic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wallpaper" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profession" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Categrory" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Organization_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working_Since" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobSkill">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="Points" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Skills" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Points" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LinkDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Social_Networks" />
+      <PropertyRef Name="URL" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Social_Networks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LisceneceDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Liscence_Key" />
+      <PropertyRef Name="Validity" />
+      <PropertyRef Name="Issue_Date" />
+      <PropertyRef Name="Liscenece_Status" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscence_Key" Type="Int32" Nullable="false" />
+    <Property Name="Validity" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Issue_Date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Liscenece_Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OwnerInfo">
+    <Key>
+      <PropertyRef Name="AdminID" />
+      <PropertyRef Name="AdminPass" />
+      <PropertyRef Name="Request_Recieved" />
+      <PropertyRef Name="Contact_No" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminPass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Request_Recieved" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OwnerRequestCheck">
+    <Key>
+      <PropertyRef Name="AdminID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Request_Recieved" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Request_Recieved" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Project_Name" />
+      <PropertyRef Name="Pics_of_project" />
+      <PropertyRef Name="Link_of_project" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Project_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pics_of_project" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Link_of_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="AdminID" />
+      <PropertyRef Name="Request_Recieved" />
+      <PropertyRef Name="Send_Request" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Request_Recieved" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Send_Request" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThemeSelect">
+    <Key>
+      <PropertyRef Name="Theme" />
+      <PropertyRef Name="Theme_Location" />
+      <PropertyRef Name="Customize" />
+      <PropertyRef Name="Background_Color" />
+      <PropertyRef Name="Font_Color" />
+      <PropertyRef Name="fontSize" />
+      <PropertyRef Name="fontStyle" />
+    </Key>
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Theme_Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Customize" Type="Int32" Nullable="false" />
+    <Property Name="Background_Color" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Font_Color" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fontSize" Type="Int32" Nullable="false" />
+    <Property Name="fontStyle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThemeSelection">
+    <Key>
+      <PropertyRef Name="Theme" />
+      <PropertyRef Name="Theme_Location" />
+      <PropertyRef Name="Customize" />
+    </Key>
+    <Property Name="Theme" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Theme_Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Customize" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserContact">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Contact_ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Subject" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Profile_Pic" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Wallpaper" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="Adress" />
+      <PropertyRef Name="Contact_No" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profile_Pic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wallpaper" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profession" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSetup">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Profile_Pic" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Wallpaper" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="Adress" />
+      <PropertyRef Name="Contact_No" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profile_Pic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wallpaper" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profession" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WebView">
+    <Key>
+      <PropertyRef Name="Profile_Pic" />
+      <PropertyRef Name="Wallpaper" />
+      <PropertyRef Name="Uid" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="Social_Networks" />
+      <PropertyRef Name="URL" />
+      <PropertyRef Name="Short_Description" />
+      <PropertyRef Name="Heading" />
+      <PropertyRef Name="Sub_Heading" />
+      <PropertyRef Name="dob" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Contact_No" />
+      <PropertyRef Name="Long_Description" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="Points" />
+      <PropertyRef Name="Job_Title" />
+      <PropertyRef Name="Organization_Name" />
+      <PropertyRef Name="Working_Since" />
+      <PropertyRef Name="Working_Description" />
+      <PropertyRef Name="Categrory" />
+      <PropertyRef Name="Link_of_project" />
+      <PropertyRef Name="Pics_of_project" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Project_Name" />
+    </Key>
+    <Property Name="Profile_Pic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wallpaper" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uid" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Profession" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Social_Networks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Short_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sub_Heading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact_No" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Long_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Skills" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Points" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Job_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Organization_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working_Since" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Categrory" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Link_of_project" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pics_of_project" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Project_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkingExperience">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Categrory" />
+      <PropertyRef Name="Job_Title" />
+      <PropertyRef Name="Working_Since" />
+      <PropertyRef Name="Organization_Name" />
+      <PropertyRef Name="Working_Description" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Categrory" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Job_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working_Since" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Organization_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="admin_usersfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="aboutus_setup" Type="Self.aboutus_setup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="aboutus_setup">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="basic_setupfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="basic_setup" Type="Self.basic_setup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="basic_setup">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="contactfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="contact" Type="Self.contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="contact">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Experiencefk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="Experience" Type="Self.Experience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Experience">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Licencefk">
+    <End Role="Licence" Type="Self.Licence" Multiplicity="1" />
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licence">
+        <PropertyRef Name="LKey" />
+      </Principal>
+      <Dependent Role="admin_users">
+        <PropertyRef Name="Lkey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Link_setupfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="Link_setup" Type="Self.Link_setup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Link_setup">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="personal_setupfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="personal_setup" Type="Self.personal_setup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="personal_setup">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="projectdetailfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="ProjectDetail" Type="Self.ProjectDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="ProjectDetail">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="skillsfk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="skills" Type="Self.skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="skills">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Theme_Customizefk">
+    <End Role="admin_users" Type="Self.admin_users" Multiplicity="1" />
+    <End Role="Theme_Customize" Type="Self.Theme_Customize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Theme_Customize">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="basic_setup2Themefk">
+    <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+    <End Role="basic_setup" Type="Self.basic_setup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Theme1" />
+      </Principal>
+      <Dependent Role="basic_setup">
+        <PropertyRef Name="Theme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Owner2OwnerFK">
+    <End Role="Owner_Setup" Type="Self.Owner_Setup" Multiplicity="0..1" />
+    <End Role="Owner_Setup1" Type="Self.Owner_Setup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner_Setup">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Owner_Setup1">
+        <PropertyRef Name="NewRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Theme_Customize2Themefk">
+    <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+    <End Role="Theme_Customize" Type="Self.Theme_Customize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Theme">
+        <PropertyRef Name="Theme1" />
+      </Principal>
+      <Dependent Role="Theme_Customize">
+        <PropertyRef Name="Theme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Portfolio_makerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="aboutus_setup" EntityType="Self.aboutus_setup" />
+    <EntitySet Name="admin_users" EntityType="Self.admin_users" />
+    <EntitySet Name="basic_setup" EntityType="Self.basic_setup" />
+    <EntitySet Name="contacts" EntityType="Self.contact" />
+    <EntitySet Name="Experiences" EntityType="Self.Experience" />
+    <EntitySet Name="Licences" EntityType="Self.Licence" />
+    <EntitySet Name="Link_setup" EntityType="Self.Link_setup" />
+    <EntitySet Name="Owner_Setup" EntityType="Self.Owner_Setup" />
+    <EntitySet Name="personal_setup" EntityType="Self.personal_setup" />
+    <EntitySet Name="ProjectDetails" EntityType="Self.ProjectDetail" />
+    <EntitySet Name="Request_Manager" EntityType="Self.Request_Manager" />
+    <EntitySet Name="skills" EntityType="Self.skill" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Themes" EntityType="Self.Theme" />
+    <EntitySet Name="Theme_Customize" EntityType="Self.Theme_Customize" />
+    <EntitySet Name="Histories" EntityType="Self.History" />
+    <EntitySet Name="AboutInfoes" EntityType="Self.AboutInfo" />
+    <EntitySet Name="Admin_WEB_Search" EntityType="Self.Admin_WEB_Search" />
+    <EntitySet Name="Admininfoes" EntityType="Self.Admininfo" />
+    <EntitySet Name="BasicInfoes" EntityType="Self.BasicInfo" />
+    <EntitySet Name="CheckLisceneDetails" EntityType="Self.CheckLisceneDetail" />
+    <EntitySet Name="CustomizeThemes" EntityType="Self.CustomizeTheme" />
+    <EntitySet Name="ExperienceWorkHireDetails" EntityType="Self.ExperienceWorkHireDetail" />
+    <EntitySet Name="JobSkills" EntityType="Self.JobSkill" />
+    <EntitySet Name="LinkDetails" EntityType="Self.LinkDetail" />
+    <EntitySet Name="LisceneceDetails" EntityType="Self.LisceneceDetail" />
+    <EntitySet Name="OwnerInfoes" EntityType="Self.OwnerInfo" />
+    <EntitySet Name="OwnerRequestChecks" EntityType="Self.OwnerRequestCheck" />
+    <EntitySet Name="ProjectInfoes" EntityType="Self.ProjectInfo" />
+    <EntitySet Name="Requests" EntityType="Self.Request" />
+    <EntitySet Name="ThemeSelects" EntityType="Self.ThemeSelect" />
+    <EntitySet Name="ThemeSelections" EntityType="Self.ThemeSelection" />
+    <EntitySet Name="UserContacts" EntityType="Self.UserContact" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <EntitySet Name="UserSetups" EntityType="Self.UserSetup" />
+    <EntitySet Name="WebViews" EntityType="Self.WebView" />
+    <EntitySet Name="WorkingExperiences" EntityType="Self.WorkingExperience" />
+    <AssociationSet Name="admin_usersfk" Association="Self.admin_usersfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="aboutus_setup" EntitySet="aboutus_setup" />
+    </AssociationSet>
+    <AssociationSet Name="basic_setupfk" Association="Self.basic_setupfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="basic_setup" EntitySet="basic_setup" />
+    </AssociationSet>
+    <AssociationSet Name="contactfk" Association="Self.contactfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="contact" EntitySet="contacts" />
+    </AssociationSet>
+    <AssociationSet Name="Experiencefk" Association="Self.Experiencefk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="Experience" EntitySet="Experiences" />
+    </AssociationSet>
+    <AssociationSet Name="Licencefk" Association="Self.Licencefk">
+      <End Role="Licence" EntitySet="Licences" />
+      <End Role="admin_users" EntitySet="admin_users" />
+    </AssociationSet>
+    <AssociationSet Name="Link_setupfk" Association="Self.Link_setupfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="Link_setup" EntitySet="Link_setup" />
+    </AssociationSet>
+    <AssociationSet Name="personal_setupfk" Association="Self.personal_setupfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="personal_setup" EntitySet="personal_setup" />
+    </AssociationSet>
+    <AssociationSet Name="projectdetailfk" Association="Self.projectdetailfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="ProjectDetail" EntitySet="ProjectDetails" />
+    </AssociationSet>
+    <AssociationSet Name="skillsfk" Association="Self.skillsfk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="skills" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="Theme_Customizefk" Association="Self.Theme_Customizefk">
+      <End Role="admin_users" EntitySet="admin_users" />
+      <End Role="Theme_Customize" EntitySet="Theme_Customize" />
+    </AssociationSet>
+    <AssociationSet Name="basic_setup2Themefk" Association="Self.basic_setup2Themefk">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="basic_setup" EntitySet="basic_setup" />
+    </AssociationSet>
+    <AssociationSet Name="Owner2OwnerFK" Association="Self.Owner2OwnerFK">
+      <End Role="Owner_Setup" EntitySet="Owner_Setup" />
+      <End Role="Owner_Setup1" EntitySet="Owner_Setup" />
+    </AssociationSet>
+    <AssociationSet Name="Theme_Customize2Themefk" Association="Self.Theme_Customize2Themefk">
+      <End Role="Theme" EntitySet="Themes" />
+      <End Role="Theme_Customize" EntitySet="Theme_Customize" />
+    </AssociationSet>
+    <FunctionImport Name="FN_SEARCH_Profession" IsComposable="true" ReturnType="Collection(Portfolio_makerModel.FN_SEARCH_Profession_Result)">
+      <Parameter Name="INPUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FN_SEARCH_PROJECT" IsComposable="true" ReturnType="Collection(Portfolio_makerModel.FN_SEARCH_PROJECT_Result)">
+      <Parameter Name="INPUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FN_SEARCH_userNAME" IsComposable="true" ReturnType="Collection(Portfolio_makerModel.FN_SEARCH_userNAME_Result)">
+      <Parameter Name="NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="f_Search_WebVeiw">
+      <Parameter Name="Input" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="String" />
+      <Parameter Name="Table" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ContactDetail">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Contact_ID" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Subject" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CustomizeInsert">
+      <Parameter Name="Theme" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Font_Color" Mode="In" Type="String" />
+      <Parameter Name="Background_Color" Mode="In" Type="String" />
+      <Parameter Name="fontStyle" Mode="In" Type="String" />
+      <Parameter Name="fontSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_WebVeiw" ReturnType="Collection(Portfolio_makerModel.Get_WebVeiw_Result)" />
+    <FunctionImport Name="InsertAboutInfo">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="dob" Mode="In" Type="String" />
+      <Parameter Name="Heading" Mode="In" Type="String" />
+      <Parameter Name="Sub_Heading" Mode="In" Type="String" />
+      <Parameter Name="Short_Description" Mode="In" Type="String" />
+      <Parameter Name="Long_Description" Mode="In" Type="String" />
+      <Parameter Name="Website" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertbasicInfo">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Liscence_Key" Mode="In" Type="Int32" />
+      <Parameter Name="Job_title" Mode="In" Type="String" />
+      <Parameter Name="Job_Description" Mode="In" Type="String" />
+      <Parameter Name="Experties" Mode="In" Type="String" />
+      <Parameter Name="Avatar_Icon" Mode="In" Type="String" />
+      <Parameter Name="Theme" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertRecord">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Pass" Mode="In" Type="String" />
+      <Parameter Name="Liscence_Key" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsetHistroy">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="ActionPerform" Mode="In" Type="String" />
+      <Parameter Name="Log_" Mode="In" Type="String" />
+      <Parameter Name="Before_log" Mode="In" Type="String" />
+      <Parameter Name="After_log" Mode="In" Type="String" />
+      <Parameter Name="Date_time" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobSkillInsert">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Skills" Mode="In" Type="String" />
+      <Parameter Name="Points" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="LinkDetailInsert">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Social_Networks" Mode="In" Type="String" />
+      <Parameter Name="URL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="LisceneDetailInsert">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Liscence_Key" Mode="In" Type="Int32" />
+      <Parameter Name="Validity" Mode="In" Type="String" />
+      <Parameter Name="Issue_Date" Mode="In" Type="String" />
+      <Parameter Name="Liscenece_Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OwnerInfoInsert">
+      <Parameter Name="AdminID" Mode="In" Type="String" />
+      <Parameter Name="AdminPass" Mode="In" Type="String" />
+      <Parameter Name="Request_Recieved" Mode="In" Type="String" />
+      <Parameter Name="Contact_No" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PN_DELETE_GOBAL">
+      <Parameter Name="Tab" Mode="In" Type="String" />
+      <Parameter Name="INPUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PN_DROP_GOBAL">
+      <Parameter Name="TYPE" Mode="In" Type="String" />
+      <Parameter Name="INPUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PN_INSERT_GOBAL">
+      <Parameter Name="Tab" Mode="In" Type="String" />
+      <Parameter Name="val" Mode="In" Type="String" />
+      <Parameter Name="COL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PN_SELECT_GOBAL">
+      <Parameter Name="Tab" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PN_TRUCAT_GOBAL">
+      <Parameter Name="Tab" Mode="In" Type="String" />
+      <Parameter Name="INPUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PN_UPDATE_GOBAL">
+      <Parameter Name="Tab" Mode="In" Type="String" />
+      <Parameter Name="INPUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProjectDetailInsert">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Project_Name" Mode="In" Type="String" />
+      <Parameter Name="Pics_of_Project" Mode="In" Type="String" />
+      <Parameter Name="Link_of_Projet" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="RequestInfoInsert">
+      <Parameter Name="AdminID" Mode="In" Type="String" />
+      <Parameter Name="Request_Recieved" Mode="In" Type="String" />
+      <Parameter Name="Send_Request" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Portfolio_makerModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Portfolio_makerModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Themedata">
+      <Parameter Name="Theme" Mode="In" Type="String" />
+      <Parameter Name="Theme_Location" Mode="In" Type="String" />
+      <Parameter Name="Customize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UserInfoInsert">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Profile_Pic" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Wallpaper" Mode="In" Type="String" />
+      <Parameter Name="Pofession" Mode="In" Type="String" />
+      <Parameter Name="Adress" Mode="In" Type="String" />
+      <Parameter Name="Contact_No" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WorkingExperiencingInsert">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+      <Parameter Name="Job_Title" Mode="In" Type="String" />
+      <Parameter Name="Working_Since" Mode="In" Type="String" />
+      <Parameter Name="Organization_Name" Mode="In" Type="String" />
+      <Parameter Name="Working_Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_WebVeiw_DetailsID" ReturnType="Collection(Portfolio_makerModel.Get_WebVeiw_DetailsID_Result)">
+      <Parameter Name="input" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Main_WEB_Search" EntityType="Portfolio_makerModel.Main_WEB_Search" />
+    <EntitySet Name="Details_ofWebView" EntityType="Portfolio_makerModel.Details_ofWebView" />
+    <EntitySet Name="C_WEB_Search" EntityType="Portfolio_makerModel.C_WEB_Search" />
+  </EntityContainer>
+  <ComplexType Name="Get_WebVeiw_Result">
+    <Property Type="String" Name="Profile_Pic" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Wallpaper" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Uid" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Profession" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Social_Networks" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Short_Description" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Heading" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Sub_Heading" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="dob" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Contact_No" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Long_Description" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Skills" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Points" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Job_Title" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Organization_Name" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Working_Since" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Working_Description" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Categrory" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Link_of_project" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Pics_of_project" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Project_Name" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_WebVeiw_DetailsID_Result">
+    <Property Type="String" Name="Profile_Pic" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Wallpaper" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Uid" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Profession" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Social_Networks" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Short_Description" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Heading" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Sub_Heading" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="dob" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Contact_No" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Long_Description" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Skills" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Points" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Job_Title" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Organization_Name" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Working_Since" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Working_Description" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Categrory" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Link_of_project" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="Pics_of_project" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="Project_Name" Nullable="false" MaxLength="250" />
+  </ComplexType>
+  <EntityType Name="Main_WEB_Search">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="PName" />
+      <PropertyRef Name="IDate" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="OName" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Profession" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IDate" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Skills" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="OName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Details_ofWebView">
+    <Key>
+      <PropertyRef Name="PIC" />
+      <PropertyRef Name="WPIC" />
+      <PropertyRef Name="Uid" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="UPro" />
+      <PropertyRef Name="SN" />
+      <PropertyRef Name="URL" />
+      <PropertyRef Name="SDes" />
+      <PropertyRef Name="MHead" />
+      <PropertyRef Name="SHead" />
+      <PropertyRef Name="dob" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Cell" />
+      <PropertyRef Name="Ldes" />
+      <PropertyRef Name="S_ID" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="Points" />
+      <PropertyRef Name="Jtitle" />
+      <PropertyRef Name="Oname" />
+      <PropertyRef Name="Year_Work" />
+      <PropertyRef Name="WorkDes" />
+      <PropertyRef Name="Cageg" />
+      <PropertyRef Name="Lpro" />
+      <PropertyRef Name="PicOFPro" />
+      <PropertyRef Name="des" />
+      <PropertyRef Name="Pname" />
+    </Key>
+    <Property Name="PIC" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="WPIC" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Uid" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UPro" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SN" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SDes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MHead" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SHead" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Cell" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Ldes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="S_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Skills" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Points" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Jtitle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Oname" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Year_Work" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="WorkDes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cageg" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Lpro" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PicOFPro" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="des" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Pname" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="C_WEB_Search">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Profession" />
+      <PropertyRef Name="Project_Name" />
+      <PropertyRef Name="Issue_Date" />
+      <PropertyRef Name="Skills" />
+      <PropertyRef Name="Organization_Name" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Profession" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Project_Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Issue_Date" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Skills" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Organization_Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
