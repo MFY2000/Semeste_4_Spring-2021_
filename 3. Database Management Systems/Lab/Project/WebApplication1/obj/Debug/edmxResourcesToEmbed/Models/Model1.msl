@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="scottModelStoreContainer" CdmEntityContainer="scottEntities">
+    <EntitySetMapping Name="BONUS">
+      <EntityTypeMapping TypeName="scottModel.BONU">
+        <MappingFragment StoreEntitySet="BONUS">
+          <ScalarProperty Name="ename" ColumnName="ename" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="sal" ColumnName="sal" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENTs">
+      <EntityTypeMapping TypeName="scottModel.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="deptno" ColumnName="deptno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="scottModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="boss" ColumnName="boss" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+          <ScalarProperty Name="deptno" ColumnName="deptno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROJECTs">
+      <EntityTypeMapping TypeName="scottModel.PROJECT">
+        <MappingFragment StoreEntitySet="PROJECT">
+          <ScalarProperty Name="projectno" ColumnName="projectno" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROJECT_PARTICIPATION">
+      <EntityTypeMapping TypeName="scottModel.PROJECT_PARTICIPATION">
+        <MappingFragment StoreEntitySet="PROJECT_PARTICIPATION">
+          <ScalarProperty Name="projectno" ColumnName="projectno" />
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLEs">
+      <EntityTypeMapping TypeName="scottModel.ROLE">
+        <MappingFragment StoreEntitySet="ROLE">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARYGRADEs">
+      <EntityTypeMapping TypeName="scottModel.SALARYGRADE">
+        <MappingFragment StoreEntitySet="SALARYGRADE">
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="losal" ColumnName="losal" />
+          <ScalarProperty Name="hisal" ColumnName="hisal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="scottModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpTables">
+      <EntityTypeMapping TypeName="scottModel.EmpTable">
+        <MappingFragment StoreEntitySet="EmpTable">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="boss" ColumnName="boss" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+          <ScalarProperty Name="deptno" ColumnName="deptno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeViews">
+      <EntityTypeMapping TypeName="scottModel.EmployeeView">
+        <MappingFragment StoreEntitySet="EmployeeView">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="question1">
+      <EntityTypeMapping TypeName="scottModel.question1">
+        <MappingFragment StoreEntitySet="question1">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="deptno" ColumnName="deptno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="scottModel.Store.Manager2" FunctionImportName="Manager2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.Manager2_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="f_Search_WebVeiw" FunctionName="scottModel.Store.f_Search_WebVeiw" />
+    <FunctionImportMapping FunctionImportName="Display1" FunctionName="scottModel.Store.Display1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.Display1_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Total_Salary" ColumnName="Total Salary" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Display2" FunctionName="scottModel.Store.Display2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.Display2_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="HIGHEST_SALARIES" ColumnName="HIGHEST SALARIES" />
+          <ScalarProperty Name="SMALLEST_SALARIES" ColumnName="SMALLEST SALARIES" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EmpCount" FunctionName="scottModel.Store.EmpCount" />
+    <FunctionImportMapping FunctionImportName="Labtask1" FunctionName="scottModel.Store.Labtask1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.Labtask1_Result">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="boss" ColumnName="boss" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+          <ScalarProperty Name="deptno" ColumnName="deptno" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PRD" FunctionName="scottModel.Store.PRD" />
+    <FunctionImportMapping FunctionImportName="PRD2" FunctionName="scottModel.Store.PRD2" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="scottModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="scottModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="scottModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="scottModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="scottModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="scottModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="scottModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="Get_WebVeiw_DetailsID" FunctionName="scottModel.Store.Get_WebVeiw_DetailsID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.Get_WebVeiw_DetailsID_Result">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_WebVeiw" FunctionName="scottModel.Store.Get_WebVeiw">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="scottModel.Get_WebVeiw_Result">
+          <ScalarProperty Name="empno" ColumnName="empno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
