@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="scottModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BONUS">
+    <Key>
+      <PropertyRef Name="ename" />
+      <PropertyRef Name="job" />
+    </Key>
+    <Property Name="ename" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="job" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="sal" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="comm" Type="decimal" Precision="7" Scale="2" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="deptno" />
+    </Key>
+    <Property Name="deptno" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="14" />
+    <Property Name="location" Type="varchar" MaxLength="13" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" />
+    <Property Name="job" Type="varchar" MaxLength="9" />
+    <Property Name="boss" Type="int" />
+    <Property Name="hiredate" Type="varchar" MaxLength="12" />
+    <Property Name="salary" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="comm" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="deptno" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'scott.dbo.EmpTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmpTable">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" />
+    <Property Name="job" Type="varchar" MaxLength="9" />
+    <Property Name="boss" Type="int" />
+    <Property Name="hiredate" Type="varchar" MaxLength="12" />
+    <Property Name="salary" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="comm" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="deptno" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'scott.dbo.ex' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ex">
+          <Property Name="i" Type="varchar(max)" />
+          <Property Name="f" Type="int" />
+        </EntityType>-->
+  <EntityType Name="PROJECT">
+    <Key>
+      <PropertyRef Name="projectno" />
+    </Key>
+    <Property Name="projectno" Type="int" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="100" />
+    <Property Name="start_date" Type="varchar" MaxLength="12" />
+    <Property Name="end_date" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="PROJECT_PARTICIPATION">
+    <Key>
+      <PropertyRef Name="projectno" />
+      <PropertyRef Name="empno" />
+      <PropertyRef Name="start_date" />
+    </Key>
+    <Property Name="projectno" Type="int" Nullable="false" />
+    <Property Name="empno" Type="int" Nullable="false" />
+    <Property Name="start_date" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="end_date" Type="varchar" MaxLength="12" />
+    <Property Name="role_id" Type="int" />
+  </EntityType>
+  <EntityType Name="ROLE">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SALARYGRADE">
+    <Key>
+      <PropertyRef Name="grade" />
+    </Key>
+    <Property Name="grade" Type="int" Nullable="false" />
+    <Property Name="losal" Type="int" Nullable="false" />
+    <Property Name="hisal" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'scott.dbo.EmployeeView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeView">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" />
+    <Property Name="hiredate" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'scott.dbo.question1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="question1">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="10" />
+    <Property Name="salary" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="deptno" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'scott.dbo.question4' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="question4">
+          <Property Name="Employee’s Name" Type="varchar" MaxLength="10" />
+          <Property Name="Department name" Type="varchar" MaxLength="14" />
+          <Property Name="salary" Type="decimal" Precision="7" Scale="2" />
+        </EntityType>-->
+  <Association Name="bossfk">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE1" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="empno" />
+      </Principal>
+      <Dependent Role="EMPLOYEE1">
+        <PropertyRef Name="boss" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="departmentfk">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="deptno" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="deptno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="employeefk">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="PROJECT_PARTICIPATION" Type="Self.PROJECT_PARTICIPATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="empno" />
+      </Principal>
+      <Dependent Role="PROJECT_PARTICIPATION">
+        <PropertyRef Name="empno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="projectfk">
+    <End Role="PROJECT" Type="Self.PROJECT" Multiplicity="1" />
+    <End Role="PROJECT_PARTICIPATION" Type="Self.PROJECT_PARTICIPATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJECT">
+        <PropertyRef Name="projectno" />
+      </Principal>
+      <Dependent Role="PROJECT_PARTICIPATION">
+        <PropertyRef Name="projectno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rolefk">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+    <End Role="PROJECT_PARTICIPATION" Type="Self.PROJECT_PARTICIPATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="PROJECT_PARTICIPATION">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="f_Search_WebVeiw" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="_Search_WebVeiw">
+    <Parameter Name="Input" Type="varchar(max)" Mode="In" />
+    <Parameter Name="SortBy" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Table" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Display1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="deptno" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Display2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="deptno" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmpCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="j0b" Type="varchar" Mode="In" />
+    <Parameter Name="EmployeeCount" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="Get_WebVeiw" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Get_WebVeiw_DetailsID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="input" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Labtask1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Manager1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="emp_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Manager2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MangName" Type="varchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="name" Type="varchar" MaxLength="10" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="PRD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="COL" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="PRD2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tab" Type="varchar(max)" Mode="In" />
+    <Parameter Name="COL" Type="varchar(max)" Mode="In" />
+    <Parameter Name="val" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="scottModelStoreContainer">
+    <EntitySet Name="BONUS" EntityType="Self.BONUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROJECT" EntityType="Self.PROJECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROJECT_PARTICIPATION" EntityType="Self.PROJECT_PARTICIPATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SALARYGRADE" EntityType="Self.SALARYGRADE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpTable" EntityType="Self.EmpTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmpTable].[empno] AS [empno], 
+    [EmpTable].[name] AS [name], 
+    [EmpTable].[job] AS [job], 
+    [EmpTable].[boss] AS [boss], 
+    [EmpTable].[hiredate] AS [hiredate], 
+    [EmpTable].[salary] AS [salary], 
+    [EmpTable].[comm] AS [comm], 
+    [EmpTable].[deptno] AS [deptno]
+    FROM [dbo].[EmpTable] AS [EmpTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EmployeeView" EntityType="Self.EmployeeView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeView].[empno] AS [empno], 
+    [EmployeeView].[name] AS [name], 
+    [EmployeeView].[hiredate] AS [hiredate]
+    FROM [dbo].[EmployeeView] AS [EmployeeView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="question1" EntityType="Self.question1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [question1].[empno] AS [empno], 
+    [question1].[name] AS [name], 
+    [question1].[salary] AS [salary], 
+    [question1].[deptno] AS [deptno]
+    FROM [dbo].[question1] AS [question1]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="bossfk" Association="Self.bossfk">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="EMPLOYEE1" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="departmentfk" Association="Self.departmentfk">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="employeefk" Association="Self.employeefk">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="PROJECT_PARTICIPATION" EntitySet="PROJECT_PARTICIPATION" />
+    </AssociationSet>
+    <AssociationSet Name="projectfk" Association="Self.projectfk">
+      <End Role="PROJECT" EntitySet="PROJECT" />
+      <End Role="PROJECT_PARTICIPATION" EntitySet="PROJECT_PARTICIPATION" />
+    </AssociationSet>
+    <AssociationSet Name="rolefk" Association="Self.rolefk">
+      <End Role="ROLE" EntitySet="ROLE" />
+      <End Role="PROJECT_PARTICIPATION" EntitySet="PROJECT_PARTICIPATION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
