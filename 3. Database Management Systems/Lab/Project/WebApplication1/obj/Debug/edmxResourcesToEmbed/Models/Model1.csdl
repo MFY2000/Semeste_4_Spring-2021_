@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="scottModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="Manager2_Result">
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <EntityType Name="BONU">
+    <Key>
+      <PropertyRef Name="ename" />
+      <PropertyRef Name="job" />
+    </Key>
+    <Property Name="ename" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="job" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sal" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="comm" Type="Decimal" Precision="7" Scale="2" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="deptno" />
+    </Key>
+    <Property Name="deptno" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="location" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.departmentfk" FromRole="DEPARTMENT" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="job" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="boss" Type="Int32" />
+    <Property Name="hiredate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="salary" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="comm" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="deptno" Type="Int32" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="Self.departmentfk" FromRole="EMPLOYEE" ToRole="DEPARTMENT" />
+    <NavigationProperty Name="EMPLOYEE1" Relationship="Self.bossfk" FromRole="EMPLOYEE" ToRole="EMPLOYEE1" />
+    <NavigationProperty Name="EMPLOYEE2" Relationship="Self.bossfk" FromRole="EMPLOYEE1" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="PROJECT_PARTICIPATION" Relationship="Self.employeefk" FromRole="EMPLOYEE" ToRole="PROJECT_PARTICIPATION" />
+  </EntityType>
+  <EntityType Name="PROJECT">
+    <Key>
+      <PropertyRef Name="projectno" />
+    </Key>
+    <Property Name="projectno" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="start_date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="end_date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PROJECT_PARTICIPATION" Relationship="Self.projectfk" FromRole="PROJECT" ToRole="PROJECT_PARTICIPATION" />
+  </EntityType>
+  <EntityType Name="PROJECT_PARTICIPATION">
+    <Key>
+      <PropertyRef Name="projectno" />
+      <PropertyRef Name="empno" />
+      <PropertyRef Name="start_date" />
+    </Key>
+    <Property Name="projectno" Type="Int32" Nullable="false" />
+    <Property Name="empno" Type="Int32" Nullable="false" />
+    <Property Name="start_date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="role_id" Type="Int32" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.employeefk" FromRole="PROJECT_PARTICIPATION" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="PROJECT" Relationship="Self.projectfk" FromRole="PROJECT_PARTICIPATION" ToRole="PROJECT" />
+    <NavigationProperty Name="ROLE" Relationship="Self.rolefk" FromRole="PROJECT_PARTICIPATION" ToRole="ROLE" />
+  </EntityType>
+  <EntityType Name="ROLE">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PROJECT_PARTICIPATION" Relationship="Self.rolefk" FromRole="ROLE" ToRole="PROJECT_PARTICIPATION" />
+  </EntityType>
+  <EntityType Name="SALARYGRADE">
+    <Key>
+      <PropertyRef Name="grade" />
+    </Key>
+    <Property Name="grade" Type="Int32" Nullable="false" />
+    <Property Name="losal" Type="Int32" Nullable="false" />
+    <Property Name="hisal" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="EmpTable">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="job" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="boss" Type="Int32" />
+    <Property Name="hiredate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="salary" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="comm" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="deptno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmployeeView">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="hiredate" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="question1">
+    <Key>
+      <PropertyRef Name="empno" />
+    </Key>
+    <Property Name="empno" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="salary" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="deptno" Type="Int32" />
+  </EntityType>
+  <Association Name="departmentfk">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="deptno" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="deptno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="bossfk">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE1" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="empno" />
+      </Principal>
+      <Dependent Role="EMPLOYEE1">
+        <PropertyRef Name="boss" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="employeefk">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="PROJECT_PARTICIPATION" Type="Self.PROJECT_PARTICIPATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="empno" />
+      </Principal>
+      <Dependent Role="PROJECT_PARTICIPATION">
+        <PropertyRef Name="empno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="projectfk">
+    <End Role="PROJECT" Type="Self.PROJECT" Multiplicity="1" />
+    <End Role="PROJECT_PARTICIPATION" Type="Self.PROJECT_PARTICIPATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJECT">
+        <PropertyRef Name="projectno" />
+      </Principal>
+      <Dependent Role="PROJECT_PARTICIPATION">
+        <PropertyRef Name="projectno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rolefk">
+    <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+    <End Role="PROJECT_PARTICIPATION" Type="Self.PROJECT_PARTICIPATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLE">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="PROJECT_PARTICIPATION">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="scottEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BONUS" EntityType="Self.BONU" />
+    <EntitySet Name="DEPARTMENTs" EntityType="Self.DEPARTMENT" />
+    <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+    <EntitySet Name="PROJECTs" EntityType="Self.PROJECT" />
+    <EntitySet Name="PROJECT_PARTICIPATION" EntityType="Self.PROJECT_PARTICIPATION" />
+    <EntitySet Name="ROLEs" EntityType="Self.ROLE" />
+    <EntitySet Name="SALARYGRADEs" EntityType="Self.SALARYGRADE" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="EmpTables" EntityType="Self.EmpTable" />
+    <EntitySet Name="EmployeeViews" EntityType="Self.EmployeeView" />
+    <EntitySet Name="question1" EntityType="Self.question1" />
+    <AssociationSet Name="departmentfk" Association="Self.departmentfk">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="bossfk" Association="Self.bossfk">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="EMPLOYEE1" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="employeefk" Association="Self.employeefk">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="PROJECT_PARTICIPATION" EntitySet="PROJECT_PARTICIPATION" />
+    </AssociationSet>
+    <AssociationSet Name="projectfk" Association="Self.projectfk">
+      <End Role="PROJECT" EntitySet="PROJECTs" />
+      <End Role="PROJECT_PARTICIPATION" EntitySet="PROJECT_PARTICIPATION" />
+    </AssociationSet>
+    <AssociationSet Name="rolefk" Association="Self.rolefk">
+      <End Role="ROLE" EntitySet="ROLEs" />
+      <End Role="PROJECT_PARTICIPATION" EntitySet="PROJECT_PARTICIPATION" />
+    </AssociationSet>
+    <FunctionImport Name="Manager2" IsComposable="true" ReturnType="Collection(scottModel.Manager2_Result)">
+      <Parameter Name="MangName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="f_Search_WebVeiw">
+      <Parameter Name="Input" Mode="In" Type="String" />
+      <Parameter Name="SortBy" Mode="In" Type="String" />
+      <Parameter Name="Table" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display1" ReturnType="Collection(scottModel.Display1_Result)">
+      <Parameter Name="deptno" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Display2" ReturnType="Collection(scottModel.Display2_Result)">
+      <Parameter Name="deptno" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EmpCount">
+      <Parameter Name="j0b" Mode="In" Type="String" />
+      <Parameter Name="EmployeeCount" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Labtask1" ReturnType="Collection(scottModel.Labtask1_Result)" />
+    <FunctionImport Name="PRD">
+      <Parameter Name="COL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PRD2">
+      <Parameter Name="Tab" Mode="In" Type="String" />
+      <Parameter Name="COL" Mode="In" Type="String" />
+      <Parameter Name="val" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(scottModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(scottModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Get_WebVeiw_DetailsID" ReturnType="Collection(scottModel.Get_WebVeiw_DetailsID_Result)">
+      <Parameter Name="input" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_WebVeiw" ReturnType="Collection(scottModel.Get_WebVeiw_Result)" />
+  </EntityContainer>
+  <ComplexType Name="Display1_Result">
+    <Property Type="String" Name="name" Nullable="true" MaxLength="14" />
+    <Property Type="Decimal" Name="Total_Salary" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Display2_Result">
+    <Property Type="String" Name="name" Nullable="true" MaxLength="14" />
+    <Property Type="Decimal" Name="HIGHEST_SALARIES" Nullable="true" Precision="7" Scale="2" />
+    <Property Type="Decimal" Name="SMALLEST_SALARIES" Nullable="true" Precision="7" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Labtask1_Result">
+    <Property Type="Int32" Name="empno" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="job" Nullable="true" MaxLength="9" />
+    <Property Type="Int32" Name="boss" Nullable="true" />
+    <Property Type="String" Name="hiredate" Nullable="true" MaxLength="12" />
+    <Property Type="Decimal" Name="salary" Nullable="true" Precision="7" Scale="2" />
+    <Property Type="Decimal" Name="comm" Nullable="true" Precision="7" Scale="2" />
+    <Property Type="Int32" Name="deptno" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Get_WebVeiw_DetailsID_Result">
+    <Property Type="Int32" Name="empno" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="hiredate" Nullable="true" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="Get_WebVeiw_Result">
+    <Property Type="Int32" Name="empno" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="hiredate" Nullable="true" MaxLength="12" />
+  </ComplexType>
+</Schema>
